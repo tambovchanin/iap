@@ -1,8 +1,25 @@
 import Vue from 'vue';
+// import { store } from './store';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Login from '@/views/Login.vue';
 
 Vue.use(Router);
+
+// const ifNotAuthenticated = (to: any, from: any, next: (path?: string) => void): void => {
+//   if (!store.getters.isAuthenticated) {
+//     return next();
+//   }
+//
+//   next('/');
+// };
+//
+// const ifAuthenticated = (to: any, from: any, next: (path?: string) => void): void => {
+//   if (store.getters.isAuthenticated) {
+//     return next();
+//   }
+//
+//   next('/login');
+// };
 
 export default new Router({
   mode: 'history',
@@ -11,15 +28,19 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: () => import(/* webpackChunkName: "home" */ './views/Home.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
+      // beforeEnter: ifNotAuthenticated
     },
-  ],
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import(/* webpackChunkName: "admin" */ './views/Admin.vue')
+      // beforeEnter: ifAuthenticated
+    }
+  ]
 });

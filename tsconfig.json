@@ -8,13 +8,14 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "allowSyntheticDefaultImports": false,
+    "sourceMap": false,
     "baseUrl": ".",
     "types": [
       "webpack-env",
       "mocha",
-      "chai"
+      "chai",
+      "vuetify"
     ],
     "paths": {
       "@/*": [
