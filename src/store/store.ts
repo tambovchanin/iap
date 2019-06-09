@@ -1,18 +1,12 @@
 import Vue from 'vue';
-import Vuex, { StoreOptions } from 'vuex';
+import Vuex from 'vuex';
 import { RootState } from './types';
-// import { profile } from './profile/index';
+import { auth } from './modules';
 
 Vue.use(Vuex);
 
-const store: StoreOptions<RootState> = {
-  state: {
-    token: localStorage.getItem('user-token') || '',
-    status: ''
-  },
+export default new Vuex.Store<RootState>({
   modules: {
-    // profile
+    auth
   }
-};
-
-export default new Vuex.Store<RootState>(store);
+});

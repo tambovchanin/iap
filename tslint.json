@@ -9,12 +9,18 @@
     ]
   },
   "rules": {
-    "quotemark": [true, "single"],
-    "indent": [true, "spaces", 2],
-    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+    "triple-equals": true,
     "interface-name": false,
     "ordered-imports": false,
+    "no-string-literal": false,
+    "curly": [true, "as-needed"],
+    "indent": [true, "spaces", 2],
+    "quotemark": [true, "single"],
+    "no-trailing-whitespace": true,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "member-access": [true, "no-public"],
+    "no-angle-bracket-type-assertion": false,
+    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}]
   }
 }

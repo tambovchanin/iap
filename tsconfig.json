@@ -10,6 +10,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": false,
     "sourceMap": false,
+    "outDir": "./dist/client",
     "baseUrl": ".",
     "types": [
       "webpack-env",
@@ -31,12 +32,11 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.ts"
   ],
   "exclude": [
+    "express",
     "node_modules"
   ]
 }

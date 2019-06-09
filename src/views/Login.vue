@@ -5,7 +5,7 @@
         v-flex(xs9, sm6, md3)
           v-card.elevation-24
             v-toolbar(dark, color='blue-grey darken-1')
-              v-toolbar-title Login form
+              v-toolbar-title Hello, login please
               v-spacer
               v-icon fas fa-key
             v-card-text
@@ -14,7 +14,7 @@
                 v-text-field#password(prepend-icon='fa-lock', v-model='password', label='Password', type='password')
             v-card-actions
               v-layout(justify-center)
-                v-btn(outline, :loading='loading', :disabled='loading', color='blue-grey darken-2', @click='login') Login
+                v-btn(outline, :loading='loading', :disabled='loading', color='blue-grey darken-2', @click='login()') Login
 </template>
 
 <script lang='ts'>
@@ -34,7 +34,15 @@ export default class Login extends Vue {
   private login(): void {
     this.loading = true;
 
-    setTimeout(() => { this.loading = false; this.$router.push('/'); }, 2000);
+    const { username, password } = this;
+
+    console.log('* user', username, password);
+
+    this.$store.dispatch('AUTH_REQUEST', { username, password })
+    .then(() => {
+      this.$router.push('/admin');
+      this.loading = false;
+    });
   }
 }
 </script>
