@@ -9,7 +9,7 @@ if (token) {
   axios.defaults.headers.common['Authorization'] = token;
 }
 
-axios.defaults.baseURL = 'http://iap.desh.site:8081';
+axios.defaults.baseURL = 'http://api.desh.site';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {

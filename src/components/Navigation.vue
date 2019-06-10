@@ -6,7 +6,7 @@
           v-list-tile-avatar
             img.pa-1(src='http://www.waybackmachinedownloader.com/en/img/archiveorg_logo.png')
           v-list-tile-content
-            v-list-tile-title John Leider
+            v-list-tile-title
     v-fab-transition
       v-btn(color='indigo',dark, fab, fixed, bottom, left, @click.stop="showDialog()")
         v-icon fa fa-plus

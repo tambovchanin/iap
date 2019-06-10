@@ -40,6 +40,9 @@ export default class Login extends Vue {
     .then(() => {
       this.$router.push('/admin');
       this.loading = false;
+    })
+    .catch((err) => {
+      this.loading = false;
     });
   }
 }
