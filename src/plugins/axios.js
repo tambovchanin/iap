@@ -9,9 +9,7 @@ if (token) {
   axios.defaults.headers.common['Authorization'] = token;
 }
 
-axios.defaults.baseURL = 'http://localhost:8081';
-// Full config:  https://github.com/axios/axios#request-config
-// axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
+axios.defaults.baseURL = 'http://iap.desh.site:8081';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {

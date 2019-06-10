@@ -1,10 +1,11 @@
 <template lang='pug'>
-  v-container
-    v-layout(row)
-      v-flex.main(xs4)
-        Main
-      v-flex.main(xs8)
-        Aside
+  v-toolbar(app)
+    v-container
+      v-layout(row)
+        v-flex.main(xs4)
+          Main
+        v-flex.main(xs8)
+          Aside
 </template>
 
 <script lang='ts'>

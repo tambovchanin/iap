@@ -6,17 +6,13 @@ import Login from '@/views/Login.vue';
 Vue.use(Router);
 
 const ifNotAuthenticated = (to: any, from: any, next: (path?: string) => void): void => {
-  if (!store.getters.isAuthenticated) {
-    return next();
-  }
+  if (!store.getters.isAuthenticated) return next();
 
   next('/admin');
 };
 
 const ifAuthenticated = (to: any, from: any, next: (path?: string) => void): void => {
-  if (store.getters.isAuthenticated) {
-    return next();
-  }
+  if (store.getters.isAuthenticated) return next();
 
   next('/login');
 };

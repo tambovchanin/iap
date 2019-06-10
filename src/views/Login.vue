@@ -11,7 +11,7 @@
             v-card-text
               v-form
                 v-text-field(prepend-icon='fa-user', v-model='username', label='Login', type='text')
-                v-text-field#password(prepend-icon='fa-lock', v-model='password', label='Password', type='password')
+                v-text-field#password(prepend-icon='fa-lock', @keyup.enter='login()', v-model='password', label='Password', type='password')
             v-card-actions
               v-layout(justify-center)
                 v-btn(outline, :loading='loading', :disabled='loading', color='blue-grey darken-2', @click='login()') Login
@@ -35,8 +35,6 @@ export default class Login extends Vue {
     this.loading = true;
 
     const { username, password } = this;
-
-    console.log('* user', username, password);
 
     this.$store.dispatch('AUTH_REQUEST', { username, password })
     .then(() => {
