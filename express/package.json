@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./server.ts",
-    "prod": "tsc && node ./build/app.js"
+    "prod": "tsc && node ./build/express/server.js"
   },
   "author": "",
   "license": "ISC",
