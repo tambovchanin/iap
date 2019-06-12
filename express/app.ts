@@ -1,3 +1,4 @@
+import cors from 'cors';
 import passport from 'passport';
 import flash from 'express-flash';
 import bodyParser from 'body-parser';
@@ -64,11 +65,10 @@ class App {
     app.use(express.json({ limit: '5mb' }));
     app.use(methodOverride());
     app.use(flash());
-    app.use((req: Request, res: Response, next: NextFunction) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-    });
+    app.use(cors({
+      origin: 'http://localhost:8080',
+      credentials: true
+    }));
   }
 
   private initializeControllers(controllers: ControllerInterface[]) {

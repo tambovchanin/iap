@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { UserAttributes } from './models/user';
 import { PassportStatic } from 'passport';
 import passportLocal from 'passport-local';

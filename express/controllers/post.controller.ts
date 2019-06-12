@@ -145,14 +145,14 @@ class PostsController implements ControllerInterface {
 
   intializeRoutes() {
     this.router.get(this.path, this.getAllPosts);
-    this.router.post(this.path, this.createAPost);
+    this.router.post(this.path, this.createPost);
   }
 
   getAllPosts = (request: express.Request, response: express.Response) => {
     response.send(this.posts);
   }
 
-  createAPost = (request: express.Request, response: express.Response) => {
+  createPost = (request: express.Request, response: express.Response) => {
     const post: PostInterface = request.body;
     this.posts.push(post);
     response.send(post);

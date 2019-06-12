@@ -42,16 +42,10 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 
 export default class Aside extends Vue {
-  private lorem: string = `Lorem ipsum dolor sit amet, mel at clita quando. \
+  lorem: string = `Lorem ipsum dolor sit amet, mel at clita quando. \
     Tesit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, \
     explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure \
     nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`;
-
-  private data(): {} {
-    const playlist: Song[] = [];
-
-    return { playlist };
-  }
 }
 </script>
 

@@ -16,7 +16,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component({ name: 'toolbar' })
 export default class Toolbar extends Vue {
-  private logout(): void {
+  logout(): void {
     this.$store.dispatch('AUTH_LOGOUT')
     .then(() => {
       this.$router.push('/');
