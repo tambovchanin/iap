@@ -1,6 +1,6 @@
 <template lang='pug'>
   v-toolbar(app)
-    v-toolbar-side-icon
+    //v-toolbar-side-icon
     v-toolbar-title Internet Archive Player
     v-spacer
     v-toolbar-items

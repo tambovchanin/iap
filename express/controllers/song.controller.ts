@@ -1,12 +1,12 @@
 import * as express from 'express';
-import PostInterface from './post.interface';
+import SongInterface from './song.interface';
 import ControllerInterface from '../interfaces/controller';
 
-class PostsController implements ControllerInterface {
+class SongController implements ControllerInterface {
   path: string = '';
   router: express.Router = express.Router();
 
-  private posts: PostInterface[] = [
+  private posts: SongInterface[] = [
     {
       cover: 'https://ia800402.us.archive.org/13/items/Swaraj-Gandhi-1947-10-05/1947-10-05.jpg',
       title: 'Post Prayer Speech of 1947-10-05 (Part 1)',
@@ -153,10 +153,10 @@ class PostsController implements ControllerInterface {
   }
 
   createPost = (request: express.Request, response: express.Response) => {
-    const post: PostInterface = request.body;
+    const post: SongInterface = request.body;
     this.posts.push(post);
     response.send(post);
   }
 }
 
-export default PostsController;
+export default SongController;

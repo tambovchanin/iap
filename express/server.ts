@@ -1,11 +1,11 @@
 import App from './app';
 import AuthController from './controllers/auth.controller';
-import PostsController from './controllers/post.controller';
+import SongController from './controllers/song.controller';
 import PLController from './controllers/playlist.controller';
 
 const app = new App([
     new AuthController('auth'),
-    new PostsController('posts'),
+    new SongController('songs'),
     new PLController('playlists')
   ],
   8081

@@ -1,6 +1,7 @@
 <template lang='pug'>
   v-dialog(v-model='show', persistent, max-width='500px')
-    v-card(@keyup.esc='cleanupAndFinish()')
+    v-card
+      v-card-title.headline Create new playlist
       v-card-text
         v-text-field(label='List name', v-model='listName', @keyup.enter='finished(false)', @keyup.esc='cleanupAndFinish()')
       v-card-actions
@@ -14,7 +15,6 @@ import { Playlist } from '../interfaces';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-
 @Component({ name: 'addlist' })
 export default class AddList extends Vue {
   @Prop(Boolean) show: boolean = false;
@@ -27,7 +27,7 @@ export default class AddList extends Vue {
 
     this.loading = true;
 
-    axios({ url: 'playlists', data: { name: this.listName }, method: 'POST' })
+    axios.post('playlists', { data: { name: this.listName } })
       .then((resp: AxiosResponse) => {
         this.cleanupAndFinish(resp.data);
       });
