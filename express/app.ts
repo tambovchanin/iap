@@ -65,10 +65,7 @@ class App {
     app.use(express.json({ limit: '5mb' }));
     app.use(methodOverride());
     app.use(flash());
-    app.use(cors({
-      origin: 'http://localhost:8080',
-      credentials: true
-    }));
+    app.use(cors());
   }
 
   private initializeControllers(controllers: ControllerInterface[]) {
