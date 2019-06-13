@@ -5,9 +5,8 @@ export interface AuthState {
 }
 
 export interface PlaylistState {
-  list: any[];
+  playlist: {};
   status: string;
-  id: number|null;
 }
 
 export interface RootState {

@@ -1,36 +1,37 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
 
-export class PlaylistAttributes extends Model {
+export class SongAttributes extends Model {
   id!: number;
   name!: string;
-  default?: boolean;
+  cover?: string;
+  file!: string;
 
   // timestamps!
   readonly createdAt!: Date;
   readonly updatedAt!: Date;
 }
 
-export const initPlaylist = (sequelize: Sequelize): void => {
-  PlaylistAttributes.init({
+export const initSong = (sequelize: Sequelize): void => {
+  SongAttributes.init({
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
     name: {
-      type: new DataTypes.STRING(128),
+      type: new DataTypes.STRING(512),
       allowNull: false
     },
-    default: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
+    cover: DataTypes.STRING(1024),
+    file: {
+      type: DataTypes.STRING(1024),
       allowNull: false
     }
 
   }, {
-    tableName: 'playlists',
+    tableName: 'songs',
     sequelize
   });
 };
 
-export default { PlaylistAttributes, initPlaylist };
+export default { SongAttributes, initSong };

@@ -4,19 +4,19 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { GetterTree, ActionTree, MutationTree, Module } from 'vuex';
 
 const state: PlaylistState = {
-  id: null,
-  list: [],
+  playlist: {},
   status: ''
 };
 
 const getters: GetterTree<PlaylistState, RootState> = {
-  listId: (s: PlaylistState) => s.id
+  playlist: (s: PlaylistState) => s.playlist,
+  status: (s: PlaylistState) => s.status
 };
 
 const actions: ActionTree<PlaylistState, RootState> = {
   [Playlist.Request]: ({ commit }, id: number) => {
     return new Promise((resolve, reject) => {
-      commit(Playlist.Changed, id);
+      // commit(Playlist.Changed, id);
       axios.get('playlists', { params: { id } })
         .then((resp: AxiosResponse) => {
           const entry = resp.data;
@@ -32,13 +32,13 @@ const actions: ActionTree<PlaylistState, RootState> = {
 };
 
 const mutations: MutationTree<PlaylistState> = {
-  [Playlist.Changed]: (s: PlaylistState, id: number|null) => {
-    s.status = 'loading';
-    s.id = id;
-  },
-  [Playlist.Success]: (s: PlaylistState, songs: any[]) => {
+  // [Playlist.Changed]: (s: PlaylistState, id: number) => {
+  //   s.status = 'loading';
+  //   s.playlist.id = id;
+  // },
+  [Playlist.Success]: (s: PlaylistState, entry: any) => {
     s.status = 'success';
-    s.list = songs;
+    s.playlist = entry;
   },
   [Playlist.Error]: (s: PlaylistState) => {
     s.status = 'error';

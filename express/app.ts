@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 import methodOverride from 'method-override';
 import expressSession from 'express-session';
 import passportConfig from './passport.config';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 
 import ControllerInterface from './interfaces/controller';
 
@@ -43,7 +43,7 @@ class App {
 
     app.use(bodyParser.json());
     app.use(compression({
-      filter: (req: express.Request, res: express.Response) => {
+      filter: (req: Request, res: Response) => {
         return /json|text|javascript|css/.test((res.getHeader('Content-Type') as string));
       },
       level: 9
