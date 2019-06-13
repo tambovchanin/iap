@@ -9,15 +9,15 @@ async function initialize() {
   await db.sequelize.sync();
   await db.user.findOrCreate({where: {name: 'admin'}, defaults: { password: UserAttributes.generateHash('iaplayer') }});
 
-  let list = await db.playlist.findByPk(1);
-
-  console.log('* list', await list.createSong(
-      {
-            cover: 'https://ia801303.us.archive.org/2/items/indianhomerule_1511_librivox/hindswaraj_1511.jpg',
-            name: '01 - Chapter I: The Congress and Its Officials',
-            file: 'https://archive.org/download/indianhomerule_1511_librivox/indianhomerule_01_gandhi.ogg'
-    }
-  ));
+  // let list = await db.playlist.findByPk(1);
+  //
+  // console.log('* list', await list.createSong(
+  //     {
+  //           cover: 'https://ia801303.us.archive.org/2/items/indianhomerule_1511_librivox/hindswaraj_1511.jpg',
+  //           name: '01 - Chapter I: The Congress and Its Officials',
+  //           file: 'https://archive.org/download/indianhomerule_1511_librivox/indianhomerule_01_gandhi.ogg'
+  //   }
+  // ));
 
   // await list.createSong([
   //   {
